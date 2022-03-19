@@ -77,7 +77,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         return false
     } else {
         launchStatusText.textContent = "Shuttle is Ready for Launch";
-        launchStatusStyle.style.color = 'rgb (65, 159, 106)';
+        launchStatusStyle.style.color = 'rgb(65, 159, 106)';
         listVar.style.visibility = "visible";
         fuelStatus.textContent = `Fuel level high enough for launch`;
         cargoStatus.textContent = `Cargo mass low enough for launch`;
