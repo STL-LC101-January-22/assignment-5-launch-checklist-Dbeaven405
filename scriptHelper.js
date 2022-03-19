@@ -4,8 +4,8 @@ require('isomorphic-fetch');
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
     let missionTarget = document.getElementById("missionTarget");
     missionTarget.innerHTML =
-
-        `<h2>Mission Destination</h2>
+    
+                 `<h2>Mission Destination</h2>
                  <ol>
                      <li>Name: ${name} </li>
                      <li>Diameter: ${diameter} </li>
@@ -14,7 +14,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                      <li>Number of Moons: ${moons}</li>
                  </ol>
                  <img src="${imageUrl}">`
-    return `Name: ${name}, Diameter: ${diameter}, Star: ${star}, Distance from Earth: ${distance}, Number of Moons: ${moons}, Image URL: "${imageUrl}"`;
+    return `Name: ${name}, Diameter: ${diameter}, Star: ${star}, Distance from Earth: ${distance}, Number of Moons: ${moons}, Image URL: "${imageUrl}"`;  
 }
 
 function validateInput(testInput) {
@@ -63,14 +63,14 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         return false;
     } else if (fuelLevel < 10000) {
         launchStatusText.textContent = "Shuttle Not Ready for Launch";
-        launchStatusStyle.style.color = "rgb(199, 37, 78)";
+        launchStatusStyle.style.color = "rgb(65, 159, 106)";
         listVar.style.visibility = "visible";
         fuelStatus.textContent = `Fuel level too low for launch`;
         cargoStatus.textContent = `Cargo mass low enough for launch`;
         return false
     } else if (cargoLevel > 10000) {
         launchStatusText.textContent = "Shuttle Not Ready for Launch";
-        launchStatusStyle.style.color = "rgb(65, 159, 106)";
+        launchStatusStyle.style.color = "rgb(199, 37, 78)";
         listVar.style.visibility = "visible";
         fuelStatus.textContent = `Fuel level high enough for launch`;
         cargoStatus.textContent = `Cargo mass too heavy for launch`;
@@ -84,22 +84,22 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         return true;
     }
 }
-async function myFetch() {
-    let planetsReturned;
+    async function myFetch() {
+        let planetsReturned;
 
-    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then(function (response) {
-        return response.json()
-    });
+        planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then(function (response) {
+            return response.json()
+        });
 
-    return planetsReturned;
-}
-
-function pickPlanet(planets) {
-    for (let i = 0; i < planets.length; i++) {
-        let num = Math.floor(Math.random() * planets.length);
-        return planets[num];
+        return planetsReturned;
     }
-}
+
+    function pickPlanet(planets) {
+        for (let i = 0; i < planets.length; i++) {
+            let num = Math.floor(Math.random() * planets.length);
+            return planets[num];
+        }
+    }
 
 
 module.exports.addDestinationInfo = addDestinationInfo;
